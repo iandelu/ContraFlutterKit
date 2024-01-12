@@ -26,11 +26,14 @@ class ButtonPlain extends StatelessWidget {
     return ButtonTheme(
       height: height != null ? height! : 48,
       minWidth: size != null ? size! : MediaQuery.of(context).size.width,
-      child: RaisedButton(
-        padding: EdgeInsets.all(16),
-        color: color,
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+            elevation: 0,
+            primary: color,
+            side: BorderSide(color: borderColor, width: 2.0),
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16.0))),
         onPressed: onTap,
-        textColor: textColor,
         child: Text(
           text,
           maxLines: 1,
@@ -38,8 +41,6 @@ class ButtonPlain extends StatelessWidget {
               fontSize: textSize != null ? textSize : 12,
               fontWeight: FontWeight.w800),
         ),
-        shape: RoundedRectangleBorder(
-            borderRadius: new BorderRadius.circular(16.0)),
       ),
     );
   }

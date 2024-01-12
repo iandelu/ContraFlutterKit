@@ -27,11 +27,13 @@ class ButtonPlainWithIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     return ButtonTheme(
       minWidth: size != null ? size! : MediaQuery.of(context).size.width,
-      child: RaisedButton(
-        padding: EdgeInsets.all(16),
-        color: color,
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+            elevation: 0,
+            primary: color,
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16.0))),
         onPressed: callback,
-        textColor: textColor,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -56,8 +58,6 @@ class ButtonPlainWithIcon extends StatelessWidget {
                 : SizedBox()
           ],
         ),
-        shape: RoundedRectangleBorder(
-            borderRadius: new BorderRadius.circular(16.0)),
       ),
     );
   }

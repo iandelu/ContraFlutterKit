@@ -79,13 +79,19 @@ class OnboardPageTypeFour extends StatelessWidget {
                             left: 24.0, top: 8, right: 24),
                         child: ButtonTheme(
                           minWidth: MediaQuery.of(context).size.width,
-                          child: RaisedButton(
-                            padding: EdgeInsets.all(16),
-                            color: wood_smoke,
+                          child: ElevatedButton (
+                            style: ButtonStyle(
+                              backgroundColor: MaterialStateProperty.all<Color>(wood_smoke),
+                              shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                                RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(16.0),
+                                  side: BorderSide(color: wood_smoke, width: 2.0)
+                                )
+                              )
+                            ),
                             onPressed: () {
                               Navigator.pushNamed(context, "/welcome_screen");
                             },
-                            textColor: white,
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: <Widget>[
@@ -103,10 +109,8 @@ class OnboardPageTypeFour extends StatelessWidget {
                                 )
                               ],
                             ),
-                            shape: RoundedRectangleBorder(
-                                borderRadius: new BorderRadius.circular(16.0)),
-                          ),
                         ),
+                      ),
                       ),
                     ],
                   ),

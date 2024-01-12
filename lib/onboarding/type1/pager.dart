@@ -87,10 +87,15 @@ class _OnboardingPagerTypeOneState extends State<OnboardingPagerTypeOne> {
                     flex: 1,
                     child: Padding(
                       padding: const EdgeInsets.only(right: 6),
-                      child: RaisedButton(
-                        padding: EdgeInsets.all(16),
-                        color: white,
-                        textColor: black,
+                      child: ElevatedButton (
+                        style: ElevatedButton.styleFrom(
+                          primary: white,
+                          onPrimary: black,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(16.0),
+                            side: BorderSide(color: black, width: 2.0),
+                          ),
+                        ),
                         onPressed: () {
 //                          Navigator.pushNamed(context, "/welcome_screen");
                         },
@@ -99,9 +104,6 @@ class _OnboardingPagerTypeOneState extends State<OnboardingPagerTypeOne> {
                           style: TextStyle(
                               fontSize: 21.0, fontWeight: FontWeight.bold),
                         ),
-                        shape: RoundedRectangleBorder(
-                            borderRadius: new BorderRadius.circular(16.0),
-                            side: BorderSide(color: black, width: 2.0)),
                       ),
                     ),
                   ),
@@ -109,9 +111,15 @@ class _OnboardingPagerTypeOneState extends State<OnboardingPagerTypeOne> {
                     flex: 1,
                     child: Padding(
                       padding: const EdgeInsets.only(left: 6),
-                      child: RaisedButton(
-                        padding: EdgeInsets.all(16),
-                        color: wood_smoke,
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          primary: wood_smoke,
+                          onPrimary: white,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(16.0),
+                            side: BorderSide(color: wood_smoke, width: 2.0),
+                          ),
+                        ),
                         onPressed: () {
                           if (_pageController.hasClients) {
                             if (currentPageValue < 2) {
@@ -127,14 +135,11 @@ class _OnboardingPagerTypeOneState extends State<OnboardingPagerTypeOne> {
                             Navigator.pushNamed(context, "/welcome_screen");
                           }
                         },
-                        textColor: white,
                         child: Text(
                           "Next",
                           style: TextStyle(
                               fontSize: 21.0, fontWeight: FontWeight.bold),
                         ),
-                        shape: RoundedRectangleBorder(
-                            borderRadius: new BorderRadius.circular(16.0)),
                       ),
                     ),
                   )
