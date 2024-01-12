@@ -136,12 +136,12 @@ class MyApp extends StatelessWidget {
         '/weather_list_page': (context) => WeatherListPage(),
         '/weather_page': (context) => WeatherDetailPage(),
         '/chart_main_page': (context) => ChartMainPage(),
-        '/bar_chart_page': (context) => ChartsPage(
+        /*'/bar_chart_page': (context) => ChartsPage(
               isBarChart: true,
             ),
         '/line_chart_page': (context) => ChartsPage(
               isBarChart: false,
-            ),
+            ),*/
         '/map_main_page': (context) => LocationMapMainPage(),
         '/location_list_page': (context) => LocationListingPage(),
         '/location_detail_page': (context) => LocationDetailPage(),

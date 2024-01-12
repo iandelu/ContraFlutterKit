@@ -1,4 +1,4 @@
-import 'package:charts_flutter/flutter.dart' as charts;
+/*import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:contraflutterkit/utils/colors.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
@@ -233,3 +233,4 @@ class BarChartSample3State extends State<BarChartSample3> {
     );
   }
 }
+*/
