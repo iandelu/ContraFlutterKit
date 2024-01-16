@@ -1,3 +1,4 @@
+import 'package:contraflutterkit/brutalims_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:contraflutterkit/brutalism_theme/assets//brut_shadows.dart';
 
@@ -29,10 +30,13 @@ class BrutCategoryWidget extends StatelessWidget {
       width: width,
       height: height,
       decoration: BoxDecoration(
-        border: brutBorderNormal,
-        color: backgroundColor,
-        borderRadius: BorderRadius.circular(borderRadius),
-        boxShadow: [boxShadow],
+        border: Border.all(
+            color: Theme.of(context).colorScheme.primary,
+            width: 3
+      ),
+      color: backgroundColor,
+      borderRadius: BorderRadius.circular(borderRadius),
+      boxShadow: [boxShadow],
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,

@@ -48,6 +48,7 @@ class BrutButton extends StatelessWidget {
       height: height,
       decoration: BoxDecoration(
         color: Colors.white,
+        borderRadius: BorderRadius.circular(BrutDimensions.brutBorderRadious),
         border: Border.all( color: borderColor, width: 2,),
         boxShadow: [boxShadow],
       ),

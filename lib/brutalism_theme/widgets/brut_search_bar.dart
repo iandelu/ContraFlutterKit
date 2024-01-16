@@ -14,8 +14,13 @@ class BrutSearchBarSmart extends StatelessWidget {
       return Container(
           margin: EdgeInsets.only(top: BrutDimensions.height30,left: BrutDimensions.width20,right: BrutDimensions.width20),
           decoration: BoxDecoration(
-            border: brutBorderNormal,
-              boxShadow: const [shadowMediumBrut]
+            border: Border.all(
+                color: Theme.of(context).colorScheme.shadow,
+                width: 2
+            ),
+            color: Theme.of(context).colorScheme.background,
+            borderRadius: BorderRadius.circular(BrutDimensions.brutBorderRadious),
+            boxShadow: const [shadowMediumBrut]
           ),
           child: TextField(
             onTap: () => {}/*showSearch(
