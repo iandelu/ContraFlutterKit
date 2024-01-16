@@ -1,3 +1,5 @@
+import 'package:contraflutterkit/brutalims_theme.dart';
+import 'package:contraflutterkit/brutalism_theme/assets/brut_shadows.dart';
 import 'package:contraflutterkit/model/item_basic_info.dart';
 import 'package:contraflutterkit/utils/colors.dart';
 import 'package:flutter/cupertino.dart';
@@ -11,10 +13,6 @@ class VerticalListItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ImageProvider image = AssetImage("assets/icons/empty.png");
-    if (item.image != null)
-      image = MemoryImage(item.image!);
-
     return GestureDetector(
       onTap: () => onTap(item.id),
       child: Container(
@@ -25,21 +23,23 @@ class VerticalListItemWidget extends StatelessWidget {
                 flex: 1,
                 child: Container(
                   width: MediaQuery.of(context).size.width,
+                  height: 110,
                   decoration: BoxDecoration(
-                    color: item.bgColor,
-                    borderRadius: BorderRadius.all(Radius.circular(16)),
-                    boxShadow: [
-                      BoxShadow(
-                          color: wood_smoke,
-                          offset: Offset(0, 8),
-                          blurRadius: 16)
-                    ],
-                    image:  DecorationImage(
-                      image: image,
-                      fit: BoxFit.cover,
-                    ),
+                      border:  Border.all(
+                        color: Colors.black, // Color del borde
+                        width: 2.0,
+                      ),
+                      color: item.bgColor,
+                      borderRadius: BorderRadius.all(
+                          Radius.circular(BrutDimensions.brutBorderRadious)
+                      ),
+                      //boxShadow: const [shadowSmallBrut],
+                      image: DecorationImage(
+                        image: MemoryImage(item.image),
+                        fit: BoxFit.cover,
+                      )
                   ),
-                  )
+                ),
             ),
             SizedBox(
               width: 16,
@@ -83,7 +83,7 @@ class VerticalListItemWidget extends StatelessWidget {
                     ),
                   ),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: <Widget>[
                       Text(
                         item.extra,

@@ -9,7 +9,8 @@ class ItemBasicInfo {
   final Color bgColor;
   final String extra;
   final Widget? extraWidget;
-  final Uint8List? image;
+  final Uint8List image;
+  final bool? isFavorite;
 
   const ItemBasicInfo(
       {required this.name,
@@ -18,5 +19,6 @@ class ItemBasicInfo {
       required this.bgColor,
       required this.id,
       this.extraWidget,
-      this.image,});
+      required this.image,
+      this.isFavorite,});
 }
