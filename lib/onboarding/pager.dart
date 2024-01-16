@@ -2,46 +2,28 @@ import 'dart:io';
 
 import 'package:contraflutterkit/custom_widgets/button_round_with_shadow.dart';
 import 'package:contraflutterkit/custom_widgets/circle_dot_widget.dart';
-import 'package:contraflutterkit/onboarding/onboard_data.dart';
-import 'package:contraflutterkit/onboarding/type2/onboard_page_two.dart';
 import 'package:contraflutterkit/utils/colors.dart';
-import 'package:contraflutterkit/utils/strings.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-class OnboardingPagerTypeTwo extends StatefulWidget {
+class OnboardingPager extends StatefulWidget {
+
+  final List<Widget> introWidgetsList;
+
+  const OnboardingPager({required this.introWidgetsList});
   @override
-  _OnboardingPagerTypeTwoState createState() => _OnboardingPagerTypeTwoState();
+  _OnboardingPagerState createState() => _OnboardingPagerState();
 }
 
-class _OnboardingPagerTypeTwoState extends State<OnboardingPagerTypeTwo> {
+class _OnboardingPagerState extends State<OnboardingPager> {
   late PageController _pageController;
   int currentPageValue = 0;
   int previousPageValue = 0;
   double _moveBar = 0.0;
 
-  final List<Widget> introWidgetsList = [
-    OnboardPageTypeTwo(
-      data: OnboardData(
-          placeHolder: "assets/images/onboarding_image_one.svg",
-          title: Strings.contra_wireframe_kit,
-          description: Strings.contra_wireframe_kit_page_text),
-    ),
-    OnboardPageTypeTwo(
-      data: OnboardData(
-          placeHolder: "assets/images/onboarding_image_two.svg",
-          title: Strings.contra_wireframe_kit,
-          description: Strings.contra_wireframe_kit_page_text),
-    ),
-    OnboardPageTypeTwo(
-      data: OnboardData(
-          placeHolder: "assets/images/onboarding_image_three.svg",
-          title: Strings.contra_wireframe_kit,
-          description: Strings.contra_wireframe_kit_page_text),
-    ),
-  ];
+
 
   @override
   void initState() {
@@ -63,12 +45,12 @@ class _OnboardingPagerTypeTwoState extends State<OnboardingPagerTypeTwo> {
         PageView.builder(
           physics: ClampingScrollPhysics(),
           itemBuilder: (context, index) {
-            return introWidgetsList[index];
+            return widget.introWidgetsList[index];
           },
           onPageChanged: (int page) {
             animatePage(page);
           },
-          itemCount: introWidgetsList.length,
+          itemCount:  widget.introWidgetsList.length,
           controller: _pageController,
         ),
         Stack(
@@ -82,7 +64,7 @@ class _OnboardingPagerTypeTwoState extends State<OnboardingPagerTypeTwo> {
                 children: <Widget>[
                   Row(
                     children: <Widget>[
-                      for (int i = 0; i < introWidgetsList.length; i++)
+                      for (int i = 0; i <  widget.introWidgetsList.length; i++)
                         if (i == currentPageValue) ...[
                           CircleDotWidget(
                             isActive: true,
@@ -107,10 +89,10 @@ class _OnboardingPagerTypeTwoState extends State<OnboardingPagerTypeTwo> {
                             curve: Curves.easeInOut,
                           );
                         } else {
-                          Navigator.pushNamed(context, "/welcome_screen");
+                          Navigator.pushNamed(context, "/home");
                         }
                       } else {
-                        Navigator.pushNamed(context, "/welcome_screen");
+                        Navigator.pushNamed(context, "/home");
                       }
                     },
                     child: Container(

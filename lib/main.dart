@@ -66,7 +66,7 @@ import 'menu/menu_page_two.dart';
 import 'menu/settings_page_one.dart';
 import 'menu/settings_page_two.dart';
 import 'onboarding/type1/pager.dart';
-import 'onboarding/type2/pager.dart';
+import 'onboarding/pager.dart';
 import 'onboarding/type4/onboard_page_four.dart';
 
 void main() => runApp(MyApp());
@@ -86,7 +86,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/onboard_all': (context) => OnboardPageMain(),
         '/onboard_type_one': (context) => OnboardingPagerTypeOne(),
-        '/onboard_type_two': (context) => OnboardingPagerTypeTwo(),
+        //'/onboard_type_two': (context) => OnboardingPager(),
         '/onboard_type_three': (context) => OnboardingPagerTypeThree(),
         '/onboard_type_four': (context) => OnboardPageTypeFour(),
         '/empty_state': (context) => EmptyState(),
