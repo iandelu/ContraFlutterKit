@@ -86,7 +86,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/onboard_all': (context) => OnboardPageMain(),
         '/onboard_type_one': (context) => OnboardingPagerTypeOne(),
-        //'/onboard_type_two': (context) => OnboardingPager(),
+        //'/onboard_type_two': (context) => OnboardingPagerTypeTwo(),
         '/onboard_type_three': (context) => OnboardingPagerTypeThree(),
         '/onboard_type_four': (context) => OnboardPageTypeFour(),
         '/empty_state': (context) => EmptyState(),

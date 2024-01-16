@@ -24,11 +24,11 @@ class BrutSearchBarSmart extends StatelessWidget {
             )*/,
             decoration: InputDecoration(
                 filled: true,
-                fillColor: BrutColors.smokyWhiteSecondary,
+                fillColor: Theme.of(context).colorScheme.background,
                 contentPadding: const EdgeInsets.all(20),
                 hintText: 'Search something',
-                hintStyle: const TextStyle(
-                    color: BrutColors.lightGrey,
+                hintStyle: TextStyle(
+                    color: Theme.of(context).colorScheme.onBackground,
                     fontSize: 15
                 ),
                 suffixIcon: Padding(
@@ -37,7 +37,7 @@ class BrutSearchBarSmart extends StatelessWidget {
                       iconData: Icons.filter_alt,
                       boxShadow: shadowSmallBrut,
                       rounded: false,
-                      buttonColor: BrutColors.primaryYellow,
+                      buttonColor: Theme.of(context).colorScheme.secondary,
                     )
                 ),
                 border: OutlineInputBorder(

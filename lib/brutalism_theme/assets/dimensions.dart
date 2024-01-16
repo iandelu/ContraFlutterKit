@@ -43,7 +43,7 @@ class BrutDimensions{
   static double font12 = screenWidth/40.33;
 
   //radius
-  static double brutBorderRadious = 0;
+  static double brutBorderRadious = 12;
 
   //iconSize
   static double iconSize16 = screenHeight/52.76;
