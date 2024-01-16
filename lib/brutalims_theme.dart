@@ -17,4 +17,15 @@ export 'brutalism_theme/widgets/brut_category_card.dart';
 
 //Onboarding
 export 'onboarding/pager.dart';
-export 'onboarding/onboard_data.dart';
+export 'brutalism_theme/widgets/onboard_page.dart';
+
+//List
+export 'brutalism_theme/widgets/vertical_list_item_widget.dart';
+export 'brutalism_theme/widgets/vertical_list_page.dart';
+
+//Models
+export 'model/item_basic_info.dart';
+export 'model/onboard_data.dart';
+
+
+
