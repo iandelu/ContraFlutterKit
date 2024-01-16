@@ -5,14 +5,14 @@ import 'package:flutter/material.dart';
 
 class VerticalListItemWidget extends StatelessWidget {
   final ItemBasicInfo item;
-  final VoidCallback onTap;
+  final Function(int) onTap;
 
   const VerticalListItemWidget({required this.item,required this.onTap});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onTap,
+      onTap: onTap(item.id),
       child: Container(
         padding: EdgeInsets.all(24),
         child: Row(

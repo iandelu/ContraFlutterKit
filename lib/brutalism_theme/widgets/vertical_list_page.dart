@@ -1,81 +1,50 @@
 import 'package:contraflutterkit/brutalism_theme/widgets/chips_filter_widget.dart';
 import 'package:contraflutterkit/brutalism_theme/widgets/vertical_list_item_widget.dart';
 import 'package:contraflutterkit/model/item_basic_info.dart';
-import 'package:contraflutterkit/utils/colors.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
+class VerticalListPage extends StatefulWidget {
 
+  final Function(int) onTapItem;
+  final List<ItemBasicInfo> items;
 
-class ShoppingListPageOne extends StatefulWidget {
-
-  final VoidCallback onTapItem;
-
-  const ShoppingListPageOne({Key? key, required this.onTapItem}) : super(key: key);
+  const VerticalListPage({Key? key, required this.onTapItem, required this.items}) : super(key: key);
 
   @override
-  _ShoppingListPageOneState createState() => _ShoppingListPageOneState();
+  _VerticalListPageState createState() => _VerticalListPageState();
 }
 
-class _ShoppingListPageOneState extends State<ShoppingListPageOne> {
+class _VerticalListPageState extends State<VerticalListPage> {
   List<ItemBasicInfo> _items = <ItemBasicInfo>[];
   List<String> _filters = <String>[];
-  VoidCallback? _onTapItem;
+  Function(int)? _onTapItem;
 
   @override
   void initState() {
     super.initState();
     _onTapItem = widget.onTapItem;
+    _items = widget.items;
     _filters.add("Small");
     _filters.add("Medium");
     _filters.add("Shirt");
     _filters.add("Shirt");
     _filters.add("Shirt");
     _filters.add("Tee");
-    _items.add(ItemBasicInfo(
-        name: "Rebousa - White striped tee",
-        extra: "189",
-        bgColor: flamingo,
-        by: "Company name"));
-    _items.add(ItemBasicInfo(
-        name: "Rebousa - White striped tee",
-        extra: "189",
-        bgColor: carribean_green,
-        by: "Company name"));
-    _items.add(ItemBasicInfo(
-        name: "Rebousa - White striped tee",
-        extra: "189",
-        bgColor: lightening_yellow,
-        by: "Company name"));
-    _items.add(ItemBasicInfo(
-        name: "Rebousa - White striped tee",
-        extra: "189",
-        bgColor: pink_salomn,
-        by: "Company name"));
-    _items.add(ItemBasicInfo(
-        name: "Rebousa - White striped tee",
-        extra: "189",
-        bgColor: flamingo,
-        by: "Company name"));
-    _items.add(ItemBasicInfo(
-        name: "Rebousa - White striped tee",
-        extra: "189",
-        bgColor: flamingo,
-        by: "Company name"));
-    _items.add(ItemBasicInfo(
-        name: "Rebousa - White striped tee",
-        extra: "189",
-        bgColor: flamingo,
-        by: "Company name"));
-    _items.add(ItemBasicInfo(
-        name: "Rebousa - White striped tee",
-        extra: "189",
-        bgColor: flamingo,
-        by: "Company name"));
   }
 
   @override
   Widget build(BuildContext context) {
+    if(_items.isEmpty) {
+      return Center(
+        child: Column(
+          children: [
+            Text("No items found", style: Theme.of(context).textTheme.titleLarge,),
+            SvgPicture.asset("assets/icons/empty.png", width: 200, height: 200,)
+          ],
+        ),
+      );
+    }
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
       body: SingleChildScrollView(
@@ -98,7 +67,7 @@ class _ShoppingListPageOneState extends State<ShoppingListPageOne> {
                 itemBuilder: (BuildContext context, int index) {
                   return VerticalListItemWidget(
                     item: _items[index],
-                    onTap: () => _onTapItem,
+                    onTap: (id) => _onTapItem,
                   );
                 }),
           ],
