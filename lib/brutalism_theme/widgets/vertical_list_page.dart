@@ -18,7 +18,7 @@ class VerticalListPage extends StatefulWidget {
 class _VerticalListPageState extends State<VerticalListPage> {
   List<ItemBasicInfo> _items = <ItemBasicInfo>[];
   List<String> _filters = <String>[];
-  Function(int)? _onTapItem;
+  late Function(int) _onTapItem;
 
   @override
   void initState() {
@@ -67,7 +67,7 @@ class _VerticalListPageState extends State<VerticalListPage> {
                 itemBuilder: (BuildContext context, int index) {
                   return VerticalListItemWidget(
                     item: _items[index],
-                    onTap: (id) => _onTapItem,
+                    onTap: _onTapItem,
                   );
                 }),
           ],

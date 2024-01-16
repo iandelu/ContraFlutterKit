@@ -11,8 +11,12 @@ class VerticalListItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ImageProvider image = AssetImage("assets/icons/empty.png");
+    if (item.image != null)
+      image = MemoryImage(item.image!);
+
     return GestureDetector(
-      onTap: onTap(item.id),
+      onTap: () => onTap(item.id),
       child: Container(
         padding: EdgeInsets.all(24),
         child: Row(
@@ -21,12 +25,22 @@ class VerticalListItemWidget extends StatelessWidget {
                 flex: 1,
                 child: Container(
                   width: MediaQuery.of(context).size.width,
-                  decoration: ShapeDecoration(
-                      color: item.bgColor,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(16)),
-                          side: BorderSide(color: wood_smoke, width: 2))),
-                )),
+                  decoration: BoxDecoration(
+                    color: item.bgColor,
+                    borderRadius: BorderRadius.all(Radius.circular(16)),
+                    boxShadow: [
+                      BoxShadow(
+                          color: wood_smoke,
+                          offset: Offset(0, 8),
+                          blurRadius: 16)
+                    ],
+                    image:  DecorationImage(
+                      image: image,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                  )
+            ),
             SizedBox(
               width: 16,
             ),
@@ -78,6 +92,9 @@ class VerticalListItemWidget extends StatelessWidget {
                             fontSize: 24,
                             fontWeight: FontWeight.w800),
                       ),
+                      Center(
+                        child: item.extraWidget,
+                      )
                       //CartAddRemoveButton()
                     ],
                   )
