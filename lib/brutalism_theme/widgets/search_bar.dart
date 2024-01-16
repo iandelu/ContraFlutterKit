@@ -14,6 +14,8 @@ class SearchBarSmart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+
       return Container(
           margin: EdgeInsets.only(top: BrutDimensions.height30,left: BrutDimensions.width20,right: BrutDimensions.width20),
           decoration: BoxDecoration(
@@ -27,6 +29,7 @@ class SearchBarSmart extends StatelessWidget {
           ),
           child: TextField(
             onTap: () => showSearch(
+                query: searchQuery,
                 context: context,
                 delegate: delegate
             ).then((id) {
@@ -47,7 +50,7 @@ class SearchBarSmart extends StatelessWidget {
                 suffixIcon: Padding(
                     padding: const EdgeInsets.all(8),
                     child: BrutIconButton(
-                      iconData: Icons.filter_alt,
+                      iconData: Icons.search_rounded,
                       boxShadow: shadowSmallBrut,
                       rounded: false,
                       buttonColor: Theme.of(context).colorScheme.secondary,
