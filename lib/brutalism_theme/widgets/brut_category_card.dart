@@ -31,8 +31,8 @@ class BrutCategoryWidget extends StatelessWidget {
       height: height,
       decoration: BoxDecoration(
         border: Border.all(
-            color: Theme.of(context).colorScheme.primary,
-            width: 3
+            color: Theme.of(context).colorScheme.shadow,
+            width: 1
       ),
       color: backgroundColor,
       borderRadius: BorderRadius.circular(borderRadius),

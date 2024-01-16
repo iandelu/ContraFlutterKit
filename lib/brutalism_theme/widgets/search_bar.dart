@@ -3,11 +3,13 @@ import 'package:contraflutterkit/brutalism_theme/assets/brut_shadows.dart';
 import 'package:contraflutterkit/brutalism_theme/assets/dimensions.dart';
 import 'package:contraflutterkit/brutalism_theme/widgets/brut_buttons.dart';
 
-import '../assets/brut_colors.dart';
 
-class BrutSearchBarSmart extends StatelessWidget {
+class SearchBarSmart extends StatelessWidget {
 
-  const BrutSearchBarSmart();
+  final String hintText;
+  final SearchDelegate delegate;
+
+  const SearchBarSmart({ required this.hintText, required this.delegate});
 
   @override
   Widget build(BuildContext context) {
@@ -23,15 +25,15 @@ class BrutSearchBarSmart extends StatelessWidget {
             boxShadow: const [shadowMediumBrut]
           ),
           child: TextField(
-            onTap: () => {}/*showSearch(
+            onTap: () => showSearch(
                 context: context,
-                delegate: SearchRecipeDelegate()
-            )*/,
+                delegate: delegate
+            ),
             decoration: InputDecoration(
                 filled: true,
                 fillColor: Theme.of(context).colorScheme.background,
                 contentPadding: const EdgeInsets.all(20),
-                hintText: 'Search something',
+                hintText: hintText,
                 hintStyle: TextStyle(
                     color: Theme.of(context).colorScheme.onBackground,
                     fontSize: 15
