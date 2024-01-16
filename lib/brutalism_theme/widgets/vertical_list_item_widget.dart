@@ -68,8 +68,8 @@ class VerticalListItemWidget extends StatelessWidget {
                           children: <Widget>[
                             Expanded(
                               flex: 1,
-                              child: Text(
-                                item.name,
+                              child: ExpandableTextWidget(
+                                text: item.name,
                                 maxLines: 2,
                                 style: TextStyle(
                                     color: wood_smoke,
