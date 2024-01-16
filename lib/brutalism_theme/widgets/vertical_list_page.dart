@@ -6,7 +6,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 class VerticalListPage extends StatefulWidget {
 
-  final Function(int) onTapItem;
+  final Function onTapItem;
   final List<ItemBasicInfo> items;
 
   const VerticalListPage({Key? key, required this.onTapItem, required this.items}) : super(key: key);
@@ -18,7 +18,7 @@ class VerticalListPage extends StatefulWidget {
 class _VerticalListPageState extends State<VerticalListPage> {
   List<ItemBasicInfo> _items = <ItemBasicInfo>[];
   List<String> _filters = <String>[];
-  late Function(int) _onTapItem;
+  late Function _onTapItem;
 
   @override
   void initState() {

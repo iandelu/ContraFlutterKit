@@ -1,20 +1,17 @@
 import 'package:contraflutterkit/brutalims_theme.dart';
-import 'package:contraflutterkit/brutalism_theme/assets/brut_shadows.dart';
-import 'package:contraflutterkit/model/item_basic_info.dart';
 import 'package:contraflutterkit/utils/colors.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class VerticalListItemWidget extends StatelessWidget {
   final ItemBasicInfo item;
-  final Function(int) onTap;
+  final Function onTap;
 
   const VerticalListItemWidget({required this.item,required this.onTap});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => onTap(item.id),
+      onTap: () => onTap(context, item.id),
       child: Container(
         padding: EdgeInsets.all(24),
         child: Row(

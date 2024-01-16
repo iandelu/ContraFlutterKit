@@ -8,8 +8,9 @@ class SearchBarSmart extends StatelessWidget {
 
   final String hintText;
   final SearchDelegate delegate;
+  final Function onClose;
 
-  const SearchBarSmart({ required this.hintText, required this.delegate});
+  const SearchBarSmart({ required this.hintText, required this.delegate, required this.onClose});
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +29,12 @@ class SearchBarSmart extends StatelessWidget {
             onTap: () => showSearch(
                 context: context,
                 delegate: delegate
-            ),
+            ).then((id) {
+              if (id != null) {
+                onClose(id);
+              }
+            }),
+
             decoration: InputDecoration(
                 filled: true,
                 fillColor: Theme.of(context).colorScheme.background,
