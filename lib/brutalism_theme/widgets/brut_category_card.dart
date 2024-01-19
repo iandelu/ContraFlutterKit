@@ -26,31 +26,31 @@ class BrutCategoryWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: width,
-      height: height,
-      decoration: BoxDecoration(
-        border: Border.all(
-            color: Theme.of(context).colorScheme.shadow,
-            width: 1
-      ),
-      color: backgroundColor,
-      borderRadius: BorderRadius.circular(borderRadius),
-      boxShadow: [boxShadow],
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          SizedBox(
-            width: width * 0.75,
-            height: height * 0.5,
-            child: Image(
-              image: AssetImage(iconPath),
-            ),
+    return Column(
+      children: [
+        Container(
+          width: width,
+          height: height,
+          decoration: BoxDecoration(
+            border: Border.all(
+                color: Theme.of(context).colorScheme.shadow,
+                width: 1
           ),
-          Text(categoryName, style: textStyle),
-        ],
+          color: backgroundColor,
+          borderRadius: BorderRadius.circular(borderRadius),
+          boxShadow: [boxShadow],
+          ),
+        child: SizedBox(
+              width: width,
+              height: height,
+              child: Image(
+                image: AssetImage(iconPath),
+              ),
+            ),
       ),
+      SizedBox(height: 12,),
+      Text(categoryName, style: textStyle),
+      ],
     );
   }
 }

@@ -7,10 +7,9 @@ import 'package:contraflutterkit/brutalism_theme/widgets/brut_buttons.dart';
 class SearchBarSmart extends StatelessWidget {
 
   final String hintText;
-  final SearchDelegate delegate;
-  final Function onClose;
+  final Function search;
 
-  const SearchBarSmart({ required this.hintText, required this.delegate, required this.onClose});
+  const SearchBarSmart({ required this.hintText, required this.search});
 
   @override
   Widget build(BuildContext context) {
@@ -28,16 +27,7 @@ class SearchBarSmart extends StatelessWidget {
             boxShadow: const [shadowMediumBrut]
           ),
           child: TextField(
-            onTap: () => showSearch(
-                query: searchQuery,
-                context: context,
-                delegate: delegate
-            ).then((id) {
-              if (id != null) {
-                onClose(id);
-              }
-            }),
-
+            onTap: () => search(),
             decoration: InputDecoration(
                 filled: true,
                 fillColor: Theme.of(context).colorScheme.background,

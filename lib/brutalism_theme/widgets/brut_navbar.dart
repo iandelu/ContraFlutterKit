@@ -6,7 +6,7 @@ import 'package:contraflutterkit/brutalism_theme/assets/dimensions.dart';
 class NavBarItem {
   final IconData icon;
   final String label;
-  final Widget destination;
+  final  destination;
 
   NavBarItem({
     required this.icon,
