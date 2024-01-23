@@ -89,6 +89,14 @@ class VerticalListItemWidget extends StatelessWidget {
                             fontSize: 24,
                             fontWeight: FontWeight.w800),
                       ),
+                      const Text(
+                        '/10',
+                        style: TextStyle(
+                            color: wood_smoke,
+                            fontSize: 26,
+                            fontWeight: FontWeight.w800),
+                      ),
+                      const SizedBox( width: 3 ),
                       Center(
                         child: item.extraWidget,
                       )

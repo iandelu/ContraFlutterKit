@@ -6,53 +6,27 @@ import 'package:contraflutterkit/brutalism_theme/assets/dimensions.dart';
 class NavBarItem {
   final IconData icon;
   final String label;
-  final  destination;
 
   NavBarItem({
     required this.icon,
     required this.label,
-    required this.destination,
   });
 }
 
-/*final navMenus = <NavBarItem>[
-  NavBarItem(
-    icon: Icons.home,
-    label: 'Home',
-    destination: ,
-  ),
-  NavBarItem(
-    icon: Icons.calendar_today,
-    label: 'Planner',
-    destination: ,
-  ),
-  NavBarItem(
-    icon: Icons.ac_unit,
-    label: 'Pantry',
-    destination: ,
-  ),
-  NavBarItem(
-    icon: Icons.shopping_cart,
-    label: 'Shop',
-    destination: ,
-  ),
-  NavBarItem(
-    icon: Icons.person,
-    label: 'Profile',
-    destination: ,
-  ),
-];*/
-
 class BrutNavBar extends StatefulWidget {
   final List<NavBarItem> items;
+  final int currentIndex;
   final Color defaultColor;
   final Color activeColor;
+  final ValueChanged<int> onItemTapped;
 
   const BrutNavBar({
     Key? key,
     required this.items,
+    required this.currentIndex,
     this.defaultColor = BrutColors.purpleHeart,
     this.activeColor = BrutColors.electricLime,
+    required this.onItemTapped,
   }) : super(key: key);
 
   @override
@@ -62,14 +36,20 @@ class BrutNavBar extends StatefulWidget {
 class _BrutNavBarState extends State<BrutNavBar> {
   int _selectedIndex = 0;
 
+  @override
+  void initState() {
+    super.initState();
+    setState(() {
+      _selectedIndex = widget.currentIndex;
+    });
+
+  }
+
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
     });
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => widget.items[index].destination),
-    );
+    widget.onItemTapped(index);
   }
 
   @override
@@ -82,10 +62,6 @@ class _BrutNavBarState extends State<BrutNavBar> {
       child: Container(
         decoration: BoxDecoration(
           color: widget.defaultColor,
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(BrutDimensions.brutBorderRadious),
-            topRight: Radius.circular(BrutDimensions.brutBorderRadious),
-          ),
           boxShadow: const [shadowMediumBrut],
         ),
         child: Row(
