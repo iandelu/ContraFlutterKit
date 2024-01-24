@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:contraflutterkit/brutalism_theme/assets/brut_shadows.dart';
 import 'package:contraflutterkit/brutalism_theme/assets/dimensions.dart';
-import 'package:contraflutterkit/brutalism_theme/widgets/brut_buttons.dart';
+import 'package:contraflutterkit/buttons/brut_buttons.dart';
 
 
 class SearchBarSmart extends StatelessWidget {

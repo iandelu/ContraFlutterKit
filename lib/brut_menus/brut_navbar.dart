@@ -1,20 +1,12 @@
+import 'package:contraflutterkit/model/navigation_item.dart';
 import 'package:flutter/material.dart';
 import 'package:contraflutterkit/brutalism_theme/assets/brut_colors.dart';
 import 'package:contraflutterkit/brutalism_theme/assets/brut_shadows.dart';
 import 'package:contraflutterkit/brutalism_theme/assets/dimensions.dart';
 
-class NavBarItem {
-  final IconData icon;
-  final String label;
-
-  NavBarItem({
-    required this.icon,
-    required this.label,
-  });
-}
 
 class BrutNavBar extends StatefulWidget {
-  final List<NavBarItem> items;
+  final List<NavItem> items;
   final int currentIndex;
   final Color defaultColor;
   final Color activeColor;
